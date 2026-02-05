@@ -30,7 +30,7 @@ export default function BirthdayPage() {
     "thank you for being you",
     "May your life be filled with joy",
     "May all your wishes come true",
-    "you are like a star...",
+    "you are a star...",
     "shining bright in my sky",
     "This year will be amazing...",
     "because you make everything better",
