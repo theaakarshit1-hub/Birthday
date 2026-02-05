@@ -1,11 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export default function BirthdayPage() {
   const [step, setStep] = useState(0)
   const [lightsOn, setLightsOn] = useState(false)
+  const [musicPlaying, setMusicPlaying] = useState(false)
   const [bannerVisible, setBannerVisible] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null)
   const [balloonsFlying, setBalloonsFlying] = useState(false)
   const [cakeVisible, setCakeVisible] = useState(false)
   const [candleLit, setCandleLit] = useState(false)
@@ -55,6 +57,17 @@ export default function BirthdayPage() {
   const lightColors = ["#facc15", "#f87171", "#60a5fa", "#4ade80", "#f472b6", "#fb923c"]
   const balloonColors = ["#facc15", "#f87171", "#60a5fa", "#4ade80", "#f472b6", "#fb923c", "#a78bfa"]
 
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (musicPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setMusicPlaying(!musicPlaying)
+    }
+  }
+
   return (
     <div
       style={{
@@ -65,6 +78,13 @@ export default function BirthdayPage() {
         position: "relative",
       }}
     >
+      {/* Background Music */}
+      <audio
+        ref={audioRef}
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A4%BE%20%E2%80%93%20%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A5%80%20%E0%A4%A6%E0%A5%81%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%BE-2-1TMCGugE5DT4VAV2PRLZ9a98XV9I1n.mp3"
+        loop
+        preload="auto"
+      />
       {/* Decorative Lights */}
       <div
         style={{
@@ -398,8 +418,29 @@ export default function BirthdayPage() {
         {step === 1 && (
           <button
             onClick={() => {
-              setBannerVisible(true)
+              toggleMusic()
               setStep(2)
+            }}
+            style={{
+              padding: "12px 24px",
+              backgroundColor: "#e11d48",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              fontSize: "1rem",
+              fontWeight: "600",
+              cursor: "pointer",
+              boxShadow: "0 4px 15px rgba(225,29,72,0.4)",
+            }}
+          >
+            Play Music
+          </button>
+        )}
+        {step === 2 && (
+          <button
+            onClick={() => {
+              setBannerVisible(true)
+              setStep(3)
             }}
             style={{
               padding: "12px 24px",
@@ -416,11 +457,11 @@ export default function BirthdayPage() {
             {"Let's Decorate"}
           </button>
         )}
-        {step === 2 && (
+        {step === 3 && (
           <button
             onClick={() => {
               setBalloonsFlying(true)
-              setStep(3)
+              setStep(4)
             }}
             style={{
               padding: "12px 24px",
@@ -437,11 +478,11 @@ export default function BirthdayPage() {
             Release Balloons
           </button>
         )}
-        {step === 3 && (
+        {step === 4 && (
           <button
             onClick={() => {
               setCakeVisible(true)
-              setStep(4)
+              setStep(5)
             }}
             style={{
               padding: "12px 24px",
@@ -458,11 +499,11 @@ export default function BirthdayPage() {
             Bring the Cake
           </button>
         )}
-        {step === 4 && (
+        {step === 5 && (
           <button
             onClick={() => {
               setCandleLit(true)
-              setStep(5)
+              setStep(6)
             }}
             style={{
               padding: "12px 24px",
@@ -479,11 +520,11 @@ export default function BirthdayPage() {
             Light the Candles
           </button>
         )}
-        {step === 5 && (
+        {step === 6 && (
           <button
             onClick={() => {
               setShowWish(true)
-              setStep(6)
+              setStep(7)
             }}
             style={{
               padding: "12px 24px",
@@ -500,11 +541,11 @@ export default function BirthdayPage() {
             Make a Wish!
           </button>
         )}
-        {step === 6 && (
+        {step === 7 && (
           <button
             onClick={() => {
               setShowMessage(true)
-              setStep(7)
+              setStep(8)
             }}
             style={{
               padding: "12px 24px",
