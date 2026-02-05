@@ -1,25 +1,22 @@
 {
   "name": "birthday",
   "version": "1.0.0",
-  "description": "Birthday greetings..",
-  "main": " ",
+  "description": "Birthday greetings for Sarah",
+  "private": true,
   "scripts": {
-    "server-node": "http-server -p 8081"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ayusharma/birthday.git"
-  },
-  "keywords": [
-    "Birthday"
-  ],
-  "author": "Ayush Sharma",
-  "license": "WTFPL",
-  "bugs": {
-    "url": "https://github.com/ayusharma/birthday/issues"
-  },
-  "homepage": "https://github.com/ayusharma/birthday#readme",
   "dependencies": {
-    "http-server": "^0.11.1"
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "typescript": "5.5.3"
   }
 }
