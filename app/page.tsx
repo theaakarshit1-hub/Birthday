@@ -334,12 +334,36 @@ export default function BirthdayPage() {
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             minHeight: "50vh",
             padding: "16px",
+            gap: "24px",
           }}
         >
+          {/* Couple Photo */}
+          <div
+            style={{
+              width: "200px",
+              height: "200px",
+              borderRadius: "50%",
+              overflow: "hidden",
+              border: "4px solid #e11d48",
+              boxShadow: "0 8px 32px rgba(225,29,72,0.3)",
+              animation: "fadeIn 1s ease",
+            }}
+          >
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/003b387f-1857-4f21-a62f-224e1e1eb023-kxDypukUuh5wEdTlM7R6yqNdJiLVJK.jpg"
+              alt="Us together"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </div>
           <p
             style={{
               fontSize: "clamp(1.5rem, 5vw, 3rem)",
